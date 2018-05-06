@@ -14,13 +14,11 @@ let outn = 0;  // n out
 //need scriptPubKey for adding input
 let WIF = ""; //private key of p2sh-p2wpkh output
 let keypair = bitcoin.ECPair.fromWIF(WIF, NETWORK);
-let pubKey = keypair.getPublicKeyBuffer()
-let pubKeyHash = bitcoin.crypto.hash160(pubKey)
-let redeemScript = bitcoin.script.witnessPubKeyHash.output.encode(pubKeyHash)
-let scriptPubkey = redeemScript(bitcoin.crypto.hash160(	
-                           keypair.getPublicKeyBuffer()
-                       )
-                   );
+let pubKey = keypair.getPublicKeyBuffer();
+let pubKeyHash = bitcoin.crypto.hash160(pubKey);
+let redeemScript = bitcoin.script.witnessPubKeyHash.output.encode(pubKeyHash);
+let redeemScriptHash = bitcoin.crypto.hash160(redeemScript);
+let scriptPubkey = bitcoin.script.scriptHash.output.encode(redeemScriptHash);
 
 //add input
 txb.addInput(txid, outn, null, scriptPubkey);

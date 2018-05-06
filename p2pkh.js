@@ -8,7 +8,6 @@ var txb = new bitcoin.TransactionBuilder(NETWORK);
 //get unspent output details
 let txid = ""; //transaction id
 let outn = 0;  // n out
-let outvalue = 40000; // output value in satoshis
 
 //add input
 txb.addInput(txid, outn);
