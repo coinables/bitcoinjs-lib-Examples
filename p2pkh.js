@@ -1,9 +1,9 @@
-let bitcoin = require("bitcoinjs-lib");
+const bitcoin = require("bitcoinjs-lib");
 
 //creating and signing a standard p2pkh transaction
 
 let NETWORK = bitcoin.networks.bitcoin; 
-var txb = new bitcoin.TransactionBuilder(NETWORK);
+let txb = new bitcoin.TransactionBuilder(NETWORK);
 
 //get unspent output details
 let txid = ""; //transaction id

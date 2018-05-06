@@ -1,11 +1,11 @@
-let bitcoin = require("bitcoinjs-lib");
+const bitcoin = require("bitcoinjs-lib");
 
 //creating and signing a p2sh segwit
 //p2sh(p2wpkh): addInput('00000....', 0)
 //sign(0, keyPair, redeemScript, ,value)
 
 let NETWORK = bitcoin.networks.bitcoin; 
-var txb = new bitcoin.TransactionBuilder(NETWORK);
+let txb = new bitcoin.TransactionBuilder(NETWORK);
 
 //get unspent output details
 let txid = ""; //transaction id of the output you want to spend
